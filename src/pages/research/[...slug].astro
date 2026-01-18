@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const siteName = "Redline Report";
+
+export async function getStaticPaths() {
+  const items = await getCollection("research");
+  return items.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const meta = entry.data;
+---
+
+<Layout title={meta.title} siteName={siteName}>
+  <header style="margin-bottom: 18px;">
+    <div style="font-size:12px; color:#6b7280; letter-spacing:0.08em; text-transform:uppercase;">
+      {(meta.tag ?? "Published")} · {meta.date}{meta.version ? ` · ${meta.version}` : ""}
+    </div>
+
+    <h1 style="font-size:34px; margin:10px 0; color:#111827; line-height:1.12;">
+      {meta.title}
+    </h1>
+
+    <p style="margin:0; color:#374151; max-width:760px; line-height:1.65;">
+      {meta.summary}
+    </p>
+
+    {meta.tickers?.length ? (
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+        {meta.tickers.map((t) => (
+          <span style="font-size:12px; padding:6px 10px; border:1px solid #e5e7eb; border-radius:999px; color:#111827;">
+            {t}
+          </span>
+        ))}
+      </div>
+    ) : null}
+  </header>
+
+  <article style="color:#111827; line-height:1.8; max-width: 860px;">
+    <Content />
+  </article>
+</Layout>

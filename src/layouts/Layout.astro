@@ -1,22 +1,54 @@
+---
+const { title = "", siteName = "Redline Report" } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title ? `${title} — ${siteName}` : siteName}</title>
+  </head>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+  <body style="font-family: ui-sans-serif, system-ui; margin: 0; line-height: 1.5;">
+    <!-- Top nav -->
+    <header style="border-bottom: 1px solid #e5e7eb;">
+      <nav
+         style="
+           max-width: 960px;
+           margin: 0 auto;
+           padding: 16px;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           gap: 16px;
+           "
+>
+      <!-- Home / Brand -->
+      <a href="/" style="text-decoration: none; color: #111827; font-weight: 700;">
+       {siteName}
+        </a>
+
+     <!-- Menu -->
+       <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="/research" style="text-decoration: none; color: #111827;">Research</a>
+          <a href="/methodology" style="text-decoration: none; color: #111827;">Methodology</a>
+         <a href="/disclosures" style="text-decoration: none; color: #111827;">Disclosures</a>
+         <a href="/contact" style="text-decoration: none; color: #111827;">Contact</a>
+      </div>
+     </nav>
+    </header>
+
+    <!-- Page content -->
+    <main style="max-width: 960px; margin: 0 auto; padding: 48px 16px;">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer style="border-top: 1px solid #e5e7eb;">
+      <div style="max-width: 960px; margin: 0 auto; padding: 16px; color: #6b7280; font-size: 13px;">
+        © {new Date().getFullYear()} {siteName}. All content is provided for informational purposes only and does not constitute investment advice.
+      </div>
+    </footer>
+  </body>
+</html>
