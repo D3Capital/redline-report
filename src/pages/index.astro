@@ -1,9 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 const siteName = "Redline Report";
+const lead =
+  "Independent short-biased research focused on corporate governance and disclosure risk.";
 ---
 
-<Layout title="" fullBleed={true}>
+<Layout
+  title=""
+  fullBleed={true}
+  headerPosition="after"
+  leadPosition="after"
+  lead={lead}
+>
   <section class="hero">
     <img src="/images/hero.png" alt={siteName} />
     <div class="hero-overlay">
@@ -28,6 +36,7 @@ const siteName = "Redline Report";
       </a>
     </div>
   </section>
+  </Layout>
 
   <style>
     .hero {

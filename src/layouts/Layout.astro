@@ -1,5 +1,12 @@
 ---
-const { title = "", siteName = "Redline Report", fullBleed = false } = Astro.props;
+const {
+  title = "",
+  siteName = "Redline Report",
+  fullBleed = false,
+  lead = "",
+  headerPosition = "top",   // "top" | "after"
+  leadPosition = "before",  // "before" | "after"
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -13,49 +20,73 @@ const { title = "", siteName = "Redline Report", fullBleed = false } = Astro.pro
   </head>
 
   <body style="font-family: ui-sans-serif, system-ui; margin: 0; line-height: 1.5;">
-    <!-- Top nav -->
+  {headerPosition === "top" ? (
     <header style="border-bottom: 1px solid #e5e7eb;">
       <nav
-         style="
-           max-width: 960px;
-           margin: 0 auto;
-           padding: 16px;
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-           gap: 16px;
-           "
->
-      <!-- Home / Brand -->
-      <a href="/" style="text-decoration: none; color: #111827; font-weight: 700;">
-       {siteName}
-        </a>
-
-     <!-- Menu -->
-       <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        style="
+          max-width: 960px;
+          margin: 0 auto;
+          padding: 16px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 16px;
+        "
+      >
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
           <a href="/research" style="text-decoration: none; color: #111827;">Research</a>
           <a href="/methodology" style="text-decoration: none; color: #111827;">Methodology</a>
-         <a href="/disclosures" style="text-decoration: none; color: #111827;">Disclosures</a>
-         <a href="/contact" style="text-decoration: none; color: #111827;">Contact</a>
-      </div>
-     </nav>
+          <a href="/disclosures" style="text-decoration: none; color: #111827;">Disclosures</a>
+          <a href="/contact" style="text-decoration: none; color: #111827;">Contact</a>
+        </div>
+      </nav>
     </header>
+  ) : null}
 
-    <!-- Page content -->
-    <main
-        style={fullBleed
-        ? "margin: 0; padding: 0;"
-        : "max-width: 960px; margin: 0 auto; padding: 48px 16px;"
-        }
-        >
+  <main
+    style={fullBleed
+      ? "margin: 0; padding: 0;"
+      : "max-width: 960px; margin: 0 auto; padding: 48px 16px;"
+    }
+  >
     <slot />
-    </main>
+  </main>
 
-    <!-- Footer -->
-    <footer style="border-top: 1px solid #e5e7eb;">
-      <div style="max-width: 960px; margin: 0 auto; padding: 16px; color: #6b7280; font-size: 13px;">
-        © {new Date().getFullYear()} {siteName}. All content is provided for informational purposes only and does not constitute investment advice.
-      </div>
-    </footer>
-  </body>
+  {headerPosition === "after" ? (
+    <header style="border-bottom: 1px solid #e5e7eb;">
+      <nav
+        style="
+          max-width: 960px;
+          margin: 0 auto;
+          padding: 16px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 16px;
+        "
+      >
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="/research" style="text-decoration: none; color: #111827;">Research</a>
+          <a href="/methodology" style="text-decoration: none; color: #111827;">Methodology</a>
+          <a href="/disclosures" style="text-decoration: none; color: #111827;">Disclosures</a>
+          <a href="/contact" style="text-decoration: none; color: #111827;">Contact</a>
+        </div>
+      </nav>
+    </header>
+  ) : null}
+
+  {lead && leadPosition === "after" ? (
+    <section style="max-width: 960px; margin: 0 auto; padding: 18px 16px 0; color: #374151;">
+      <p style="margin: 0; max-width: 72ch; font-size: 14px; line-height: 1.6;">
+        {lead}
+      </p>
+    </section>
+  ) : null}
+
+  <footer style="border-top: 1px solid #e5e7eb;">
+    <div style="max-width: 960px; margin: 0 auto; padding: 16px; color: #6b7280; font-size: 13px;">
+      © {new Date().getFullYear()} {siteName}. All content is provided for informational purposes only and does not constitute investment advice.
+    </div>
+  </footer>
+</body>
 </html>
