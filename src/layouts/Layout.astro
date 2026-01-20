@@ -93,13 +93,33 @@ const {
   ) : null}
 
   {lead && leadPosition === "after" ? (
-    <section style="max-width: 960px; margin: 0 auto; padding: 18px 16px 0; color: #374151;">
-      <p style="margin: 0; max-width: 72ch; font-size: 14px; line-height: 1.6;">
-        {lead}
-        white-space: pre-line;
+  <section
+    style="
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 28px 16px 10px;
+      border-top: 1px solid #e5e7eb;
+    "
+  >
+    <div
+      style="
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 18px 18px;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        background: #fafafa;
+        color: #111827;
+      "
+    >
+      <p style="margin: 0; font-size: 14px; line-height: 1.75; white-space: pre-line; text-align: left;">
+        <strong style="font-weight: 800;">{lead.split("\n\n")[0]}</strong>
+        {"\n\n"}
+        {lead.split("\n\n").slice(1).join("\n\n")}
       </p>
-    </section>
-  ) : null}
+    </div>
+  </section>
+) : null}
 
   <footer style="border-top: 1px solid #e5e7eb;">
     <div style="max-width: 960px; margin: 0 auto; padding: 16px; color: #6b7280; font-size: 13px;">
