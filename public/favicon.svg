@@ -1,0 +1,7 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="#0B0B0B"/>
+  <!-- red dot (anchor) -->
+  <rect x="46" y="14" width="4" height="4" fill="#C62828"/>
+  <!-- red line -->
+  <rect x="14" y="30" width="36" height="4" fill="#C62828"/>
+</svg>
