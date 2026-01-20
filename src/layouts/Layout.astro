@@ -15,7 +15,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title ? `${title} — ${siteName}` : siteName}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
     <!-- cf-build: favicon-layout-unified -->
   </head>
 
@@ -23,23 +23,38 @@ const {
   {headerPosition === "top" ? (
     <header style="border-bottom: 1px solid #e5e7eb;">
       <nav
-        style="
-          max-width: 960px;
-          margin: 0 auto;
-          padding: 16px;
-          display: flex;
-          justify-content: flex-end;
-          align-items: center;
-          gap: 16px;
-        "
-      >
-        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-          <a href="/research" style="text-decoration: none; color: #111827;">Research</a>
-          <a href="/methodology" style="text-decoration: none; color: #111827;">Methodology</a>
-          <a href="/disclosures" style="text-decoration: none; color: #111827;">Disclosures</a>
-          <a href="/contact" style="text-decoration: none; color: #111827;">Contact</a>
-        </div>
-      </nav>
+  style="
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  "
+>
+  <!-- Left: Home / Brand -->
+  <a
+    href="/"
+    style="
+      text-decoration: none;
+      color: #111827;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    "
+    aria-label="Home"
+  >
+    Redline
+  </a>
+
+  <!-- Right: Menu -->
+  <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+    <a href="/research" style="text-decoration: none; color: #111827;">Research</a>
+    <a href="/methodology" style="text-decoration: none; color: #111827;">Methodology</a>
+    <a href="/disclosures" style="text-decoration: none; color: #111827;">Disclosures</a>
+    <a href="/contact" style="text-decoration: none; color: #111827;">Contact</a>
+  </div>
+</nav>
     </header>
   ) : null}
 
@@ -79,6 +94,7 @@ const {
     <section style="max-width: 960px; margin: 0 auto; padding: 18px 16px 0; color: #374151;">
       <p style="margin: 0; max-width: 72ch; font-size: 14px; line-height: 1.6;">
         {lead}
+        white-space: pre-line;
       </p>
     </section>
   ) : null}
