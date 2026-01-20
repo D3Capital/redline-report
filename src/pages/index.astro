@@ -1,12 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
 const siteName = "Redline Report";
-const tagline =
-  "Independent short-biased research focused on corporate governance and disclosure risk.";
 ---
 
-<Layout title="">
+<Layout title="" fullBleed={true}>
   <section class="hero">
     <img src="/images/hero.png" alt={siteName} />
     <div class="hero-overlay">
@@ -31,37 +28,6 @@ const tagline =
       </a>
     </div>
   </section>
-
-  <!-- Top nav -->
-  <header style="border-bottom: 1px solid #e5e7eb;">
-    <nav
-      style="
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 16px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 16px;
-      "
-    >
-      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-        <a href="/research" style="text-decoration: none; color: #111827;">Research</a>
-        <a href="/methodology" style="text-decoration: none; color: #111827;">Methodology</a>
-        <a href="/disclosures" style="text-decoration: none; color: #111827;">Disclosures</a>
-        <a href="/contact" style="text-decoration: none; color: #111827;">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Footer -->
-  <footer style="border-top: 1px solid #e5e7eb;">
-    <div style="max-width: 960px; margin: 0 auto; padding: 16px; color: #6b7280; font-size: 13px;">
-      <div>
-        © {new Date().getFullYear()} {siteName}. All content is provided for informational purposes only and does not constitute investment advice.
-      </div>
-    </div>
-  </footer>
 
   <style>
     .hero {
@@ -123,8 +89,4 @@ const tagline =
       margin: 0;
       font-size: clamp(14px, 1.6vw, 18px);
       line-height: 1.5;
-      max-width: 56ch;
-      opacity: 0.92;
-    }
-  </style>
-</Layout>
+      max-width: 
