@@ -2,10 +2,11 @@
 const {
   title = "",
   siteName = "Redline Report",
+  brandLabel = "Redline",
   fullBleed = false,
   lead = "",
-  headerPosition = "top",   // "top" | "after"
-  leadPosition = "before",  // "before" | "after"
+  headerPosition = "top",
+  leadPosition = "before",
 } = Astro.props;
 ---
 
@@ -15,7 +16,8 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title ? `${title} — ${siteName}` : siteName}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=5" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=5" />
     <!-- cf-build: favicon-layout-unified -->
   </head>
 
