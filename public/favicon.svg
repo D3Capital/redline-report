@@ -1,7 +1,21 @@
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="#0B0B0B"/>
-  <!-- red dot (anchor) -->
-  <rect x="46" y="14" width="4" height="4" fill="#C62828"/>
-  <!-- red line -->
-  <rect x="14" y="30" width="36" height="4" fill="#C62828"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="512"
+  height="512"
+  viewBox="0 0 512 512"
+  role="img"
+  aria-label="Redline report favicon"
+>
+  <!-- Background -->
+  <rect width="512" height="512" fill="#0B0B0B" />
+
+  <!-- Red line (slightly above center) -->
+  <rect
+    x="0"
+    y="236"
+    width="512"
+    height="8"
+    fill="#C62828"
+  />
 </svg>
