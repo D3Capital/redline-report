@@ -53,8 +53,7 @@ const fmt = (d: Date | null) =>
     <div class="kicker">RESEARCH LIBRARY</div>
     <h1 class="h1">Research</h1>
     <p class="sub">
-      Evidence-first, adversarial research on governance failure, disclosure distortion, and incentive misalignment.
-      No narratives. No marketing. Just primary documents.
+      Independent research on cycles, companies, industries and markets. Evidence first, thesis driven, and focused on where expectations diverge from fundamentals.
     </p>
 
     <div class="chips">
@@ -88,11 +87,11 @@ const fmt = (d: Date | null) =>
     </div>
 
     <div class="card">
-      <div class="label">WATCHLIST</div>
-      <div class="title">Targets under review</div>
-      <div class="meta">Pre-publication tracking</div>
+      <div class="label">RESEARCH PIPELINE</div>
+      <div class="title">Work in progress</div>
+      <div class="meta">Pre-publication research</div>
       <p class="desc">
-        This section is reserved for upcoming work. Items move here before they become published reports.
+        Ongoing research and developing theses appear here before publication.
       </p>
       {upcoming.length > 0 ? (
         <ul class="list">
@@ -104,7 +103,7 @@ const fmt = (d: Date | null) =>
           ))}
         </ul>
       ) : (
-        <p class="muted">No items in review yet.</p>
+        <p class="muted">No research in progress yet.</p>
       )}
     </div>
 
